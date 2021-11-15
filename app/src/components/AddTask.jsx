@@ -1,27 +1,32 @@
-import React, { useState } from 'react'
-import Button from './Button'
-import '../css/AddTask.css'
+import React, { useState } from "react"
+import Button from "./Button"
+import "../css/AddTask.css"
 
-const AddTask = ({handleAddTask}) => {
-    const [inputData, setInputData] = useState("")
+const AddTask = ({ handleAddTask }) => {
+	const [inputData, setInputData] = useState("")
 
-    const handleInputChange = (e) => {
-        setInputData(e.target.value)
-    }
+	const handleInputChange = (e) => {
+		setInputData(e.target.value)
+	}
 
-    const handleAddTaskClick = () => {
-        handleAddTask(inputData)
-        setInputData("")
-    }
+	const handleAddTaskClick = () => {
+		handleAddTask(inputData)
+		setInputData("")
+	}
 
-    return (
-        <div className="add-task-container">
-            <input onChange={handleInputChange} value={inputData} className="add-task-input" type="text" />
-            <div className="add">
-                <Button onClick={handleAddTaskClick} >Add task</Button>
-            </div>
-        </div>
-    )
+	return (
+		<div className='add-task-container'>
+			<input
+				onChange={handleInputChange}
+				value={inputData}
+				className='add-task-input'
+				type='text'
+			/>
+			<div className='add-task-button-container'>
+				<Button onClick={handleAddTaskClick}>Add task</Button>
+			</div>
+		</div>
+	)
 }
 
-export default AddTask;
+export default AddTask
