@@ -14,7 +14,7 @@ const App = () => {
 		{
 			id: "2",
 			title: "Alimentar o pássaro.",
-			completed: false,
+			completed: true,
 		},
 	])
 
@@ -30,10 +30,28 @@ const App = () => {
 		setTasks(newTasks)
 	}
 
+	const handleRemoveTask = (taskId) => {
+		const newTasks = tasks.filter((task) => task.id !== taskId)
+		setTasks(newTasks)
+	}
+
+	const handleClickTask = (taskId) => {
+		const newTasks = tasks.map((task) => {
+			if (task.id === taskId)
+				return { ...task, completed: !task.completed }
+			return task
+		})
+		setTasks(newTasks)
+	}
+
 	return (
 		<div className='container'>
 			<AddTask handleAddTask={handleAddTask} />
-			<Tasks tasks={tasks} />
+			<Tasks
+				tasks={tasks}
+				handleClickTask={handleClickTask}
+				handleRemoveTask={handleRemoveTask}
+			/>
 		</div>
 	)
 }
