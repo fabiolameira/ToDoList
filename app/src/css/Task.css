@@ -11,11 +11,12 @@
 
 .task-title {
 	cursor: pointer;
+	font-weight: bold;
 }
 
 .remove-task-button {
 	background-color: #444;
 	border: none;
-	font-size: 16px;
+	font-size: 24px;
 	color: yellow;
 }

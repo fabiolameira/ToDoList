@@ -1,4 +1,5 @@
 import React from "react"
+import { CgClose } from 'react-icons/cg'
 import "../css/Task.css"
 
 const Task = ({ task, handleClickTask, handleRemoveTask }) => {
@@ -18,7 +19,7 @@ const Task = ({ task, handleClickTask, handleRemoveTask }) => {
 					className='remove-task-button'
 					onClick={() => handleRemoveTask(task.id)}
 				>
-					X
+					<CgClose/>
 				</button>
 			</div>
 		</div>
