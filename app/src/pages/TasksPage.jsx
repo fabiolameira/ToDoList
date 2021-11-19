@@ -4,18 +4,7 @@ import AddTask from "../components/AddTask"
 import Tasks from "../components/Tasks"
 
 const TasksPage = () => {
-	const [tasks, setTasks] = useState([
-		{
-			id: "1",
-			title: "Regar as plantas.",
-			completed: false,
-		},
-		{
-			id: "2",
-			title: "Alimentar o pássaro.",
-			completed: true,
-		},
-	])
+	const [tasks, setTasks] = useState([])
 
 	const handleAddTask = (taskTitle) => {
 		const newTasks = [
