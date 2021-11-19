@@ -1,10 +1,19 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { v4 as uuidv4 } from "uuid"
+import axios from 'axios';
 import AddTask from "../components/AddTask"
 import Tasks from "../components/Tasks"
 
 const TasksPage = () => {
 	const [tasks, setTasks] = useState([])
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const { data } = await axios.get('https://my-json-server.typicode.com/fabiolameira/todolist/data')
+			setTasks(data)
+		}
+		fetchData()
+	}, [])
 
 	const handleAddTask = (taskTitle) => {
 		const newTasks = [
