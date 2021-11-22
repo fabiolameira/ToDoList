@@ -11,18 +11,24 @@ const AddTask = () => {
 	const dispatch = useDispatch()
 	const { addTask } = bindActionCreators(actionCreators, dispatch)
 
+	const isEmptyOrSpaces = (str) => {
+		return str === null || str.match(/^ *$/) !== null
+	}
+
 	const handleInputChange = (e) => {
 		setInputData(e.target.value)
 	}
 
 	const handleAddTaskClick = () => {
-		const newTask = {
-			id: uuidv4(),
-			title: inputData,
-			completed: false,
+		if (!isEmptyOrSpaces(inputData)) {
+			const newTask = {
+				id: uuidv4(),
+				title: inputData,
+				completed: false,
+			}
+			addTask(newTask)
+			setInputData("")
 		}
-		addTask(newTask)
-		setInputData("")
 	}
 
 	return (
